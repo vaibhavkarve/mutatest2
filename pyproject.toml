@@ -70,7 +70,8 @@ qa = [
   "mypy",
   "black",
   "pre-commit",
-  "isort"
+  "isort",
+  "pdbp",
 ]
 build = [
   "setuptools",
