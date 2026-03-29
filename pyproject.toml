@@ -1,10 +1,129 @@
+[project]
+# ensure LICENSE is included in wheel metadata
+name = "mutatest"
+version = "3.1.0"
+description = "Python mutation testing: test your tests!"
+requires-python = ">=3.11"
+readme = "README.rst"
+license = "MIT"
+license-files = ["LICENSE", "AUTHORS.rst"]
+keywords = ["mutatest", "mutation", "testing", "test", "mutant", "mutate", "pytest"]
+authors= [
+  { name = "Evan Kepner", email = "EvanKepner@users.noreply.github.com"},
+  { name = "Vaibhav Karve", email = "vkarve@protonmail.com"},
+]
+maintainers = [
+  { name = "Vaibhav Karve", email = "vkarve@protonmail.com"},
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Environment :: Console",
+    "Framework :: Pytest",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Utilities",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Software Development :: Testing :: Unit",
+]
+dependencies = [
+  "coverage",
+  "typing-extensions",
+]
+
+[project.urls]
+# "Documentation": "https://mutatest.readthedocs.io/"
+# "Bug Tracker": "https://github.com/EvanKepner/mutatest/issues"
+"Original Source Code" = "https://github.com/EvanKepner/mutatest"
+Repository = "https://github.com/vaibhavkarve/mutatest"
+Homepage = "https://github.com/vaibhavkarve/mutatest"
+
+[project.scripts]
+cli = "mutatest.cli:cli_main"
+
+
+[dependency-groups]
+docs = [
+  "coverage>=4.4,<6.0",
+  "ipython",
+  "sphinx",
+  "sphinx_rtd_theme",
+]
+tests = [
+  "pytest >= 4.0.0",
+  "freezegun",
+  "coverage",
+  "pytest-cov",
+  "pytest-xdist",
+  "tox",
+  "virtualenv",
+  "hypothesis",
+]
+qa = [
+  "mypy",
+  "black",
+  "pre-commit",
+  "isort"
+]
+build = [
+  "setuptools",
+  "twine",
+  "wheel"
+]
+
+[tool.distutils.bdist_wheel]
+python-tag = "py311"
+
+[tool.flake8]
+max-line-length = "100"
+exclude = "tests/*"
+max-complexity = "10"
+
+[tool.isort]
+# isort can be run on cli, not included in pre-commit hook
+# due to preferential treatment from black on formatting
+atomic = true
+force_grid_wrap = 0
+include_trailing_comma = true
+lines_after_imports = 2
+lines_between_types = 1
+multi_line_output = 3
+not_skip = ["__init__.py"]
+use_parentheses = true
+known_first_party = ["mutatest"]
+known_third_party = ["pytest", "setuptools"]
+
+[tool.check-manifest]
+ignore = """
+notebooks
+notebooks/*
+*.ipynb
+*.ipynb_checkpoints/*"""
+
+[[tool.mypy.overrides]]
+module = ["mutatest.tests.*"]
+# No static type checks are done on tests
+ignore_errors = true
+
+[tool.setuptools]
+include-package-data = false
+
+
 [build-system]
 requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
 
 
 [tool.black]
 line-length = 100
-target-version = ['py36', 'py37', 'py38']
+target-version = ['py311', 'py312', 'py313']
 exclude = '''
 /(
     \.eggs
