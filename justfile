@@ -8,7 +8,7 @@ install:
 
 # Run the ruff formatter and linter, fixing everything that is fixable.
 lint:
-    uv run dead --exclude 'docs/*|_devtools'
+    -uv run dead --exclude 'docs/*|_devtools'
     uv run ruff format
     uv run ruff check
 
@@ -22,7 +22,7 @@ test flags = "-v -n logical":
 	uv run pytest {{ flags }}
 
 run:
-	uv run cli
+	uv run mutatest --parallel
 
 build:
 	uv build

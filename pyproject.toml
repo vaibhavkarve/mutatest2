@@ -1,16 +1,16 @@
 [project]
 # ensure LICENSE is included in wheel metadata
-name = "mutatest"
-version = "3.1.0"
-description = "Python mutation testing: test your tests!"
+name = "mutatest2"
+version = "4.0.0"
+description = "Fork of mutatest. Python mutation testing: test your tests!"
 requires-python = ">=3.11"
 readme = "README.rst"
 license = "MIT"
 license-files = ["LICENSE", "AUTHORS.rst"]
 keywords = ["mutatest", "mutation", "testing", "test", "mutant", "mutate", "pytest"]
 authors= [
-  { name = "Evan Kepner", email = "EvanKepner@users.noreply.github.com"},
   { name = "Vaibhav Karve", email = "vkarve@protonmail.com"},
+  { name = "Evan Kepner", email = "EvanKepner@users.noreply.github.com"},
 ]
 maintainers = [
   { name = "Vaibhav Karve", email = "vkarve@protonmail.com"},
@@ -35,15 +35,14 @@ classifiers = [
 ]
 dependencies = [
   "coverage >= 7.13.5",
-  "typing-extensions",
 ]
 
 [project.urls]
-# "Documentation": "https://mutatest.readthedocs.io/"
-# "Bug Tracker": "https://github.com/EvanKepner/mutatest/issues"
-"Original Source Code" = "https://github.com/EvanKepner/mutatest"
-Repository = "https://github.com/vaibhavkarve/mutatest"
-Homepage = "https://github.com/vaibhavkarve/mutatest"
+"Upstream Documentation" = "https://mutatest.readthedocs.io/"
+"Upstream Source Code" = "https://github.com/EvanKepner/mutatest"
+"Upstream Bug Tracker" = "https://github.com/EvanKepner/mutatest/issues"
+Repository = "https://github.com/vaibhavkarve/mutatest2"
+Homepage = "https://github.com/vaibhavkarve/mutatest2"
 
 [project.scripts]
 mutatest = "mutatest.cli:cli_main"

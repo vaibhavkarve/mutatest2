@@ -894,12 +894,11 @@ wheels = [
 ]
 
 [[package]]
-name = "mutatest"
-version = "3.1.0"
+name = "mutatest2"
+version = "4.0.0"
 source = { editable = "." }
 dependencies = [
     { name = "coverage" },
-    { name = "typing-extensions" },
 ]
 
 [package.dev-dependencies]
@@ -934,10 +933,7 @@ tests = [
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "coverage", specifier = ">=7.13.5" },
-    { name = "typing-extensions" },
-]
+requires-dist = [{ name = "coverage", specifier = ">=7.13.5" }]
 
 [package.metadata.requires-dev]
 build = [
