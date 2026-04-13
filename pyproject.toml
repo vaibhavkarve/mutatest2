@@ -1,7 +1,7 @@
 [project]
 # ensure LICENSE is included in wheel metadata
 name = "mutatest2"
-version = "4.0.0"
+version = "4.0.1"
 description = "Fork of mutatest. Python mutation testing: test your tests!"
 requires-python = ">=3.11"
 readme = "README.rst"
@@ -72,8 +72,9 @@ qa = [
   "dead",
 ]
 build = [
+  "cryptography >= 46.0.7",
   "setuptools",
-  "twine",
+  "twine >= 6.2.0",
   "wheel"
 ]
 
